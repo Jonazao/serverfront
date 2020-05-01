@@ -7,14 +7,21 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch",
     "dev": "nodemon --exec babel-node lib/server.js",
     "webpack": "webpack -wd"
   },
   "babel": {
     "presets": [
       "react",
-      "env",
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
       "stage-2"
     ]
   },
@@ -41,6 +48,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
+    "jest": "^19.0.2",
     "webpack-cli": "^3.3.11"
   }
 }
